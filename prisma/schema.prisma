@@ -1,0 +1,19 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource main {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Mail {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  from      String
+  to        String
+  subject   String
+  body      String
+  status    String
+  error     String?
+}
